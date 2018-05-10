@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+   <Appenders>
+      <Console name="Console" target="SYSTEM_OUT">
+         <PatternLayout pattern="%5p [%t] - %m%n" />
+      </Console>
+      <File name="file" fileName="./logs/coffee_pro.log" append="true">
+         <PatternLayout pattern="%5p [%t] - %m%n" />
+      </File>
+   </Appenders>
+
+   <Loggers>
+      <Logger name="kr.or.dgit.coffee_pro" level="trace" additivity="true">
+         <AppenderRef ref="Console" />
+         <AppenderRef ref="file" /> <!-- 이거 제거하면 계속 log파일추가됨-->
+      </Logger>
+ 
+      <Root level="debug">
+         <AppenderRef ref="Console" />
+         <AppenderRef ref="file" />
+      </Root>      
+   </Loggers>
+</Configuration>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="kr.or.dgit.coffee_pro.MyBatisSqlSessionFactoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-05-10T12:10:32" hostname="Admin-PC" time="0.001">
+  <properties/>
+  <testcase name="testFactory" classname="kr.or.dgit.coffee_pro.MyBatisSqlSessionFactoryTest" time="0.0"/>
+  <testcase name="testSession" classname="kr.or.dgit.coffee_pro.MyBatisSqlSessionFactoryTest" time="0.001"/>
+  <system-out><![CDATA[DEBUG [Test worker] - Opening JDBC Connection
+DEBUG [Test worker] - Checked out connection 2051917348 from pool.
+DEBUG [Test worker] - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@7a4dc624]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

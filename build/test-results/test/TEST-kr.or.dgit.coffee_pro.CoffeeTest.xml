@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="kr.or.dgit.coffee_pro.CoffeeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-05-10T12:10:31" hostname="Admin-PC" time="1.105">
+  <properties/>
+  <testcase name="test1selectCoffee" classname="kr.or.dgit.coffee_pro.CoffeeTest" time="1.105"/>
+  <system-out><![CDATA[DEBUG [Test worker] - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+DEBUG [Test worker] - selectCoffeeTotal()
+DEBUG [Test worker] - selectCoffeeTotal()
+DEBUG [Test worker] - Class not found: org.jboss.vfs.VFS
+DEBUG [Test worker] - JBoss 6 VFS API is not available in this environment.
+DEBUG [Test worker] - Class not found: org.jboss.vfs.VirtualFile
+DEBUG [Test worker] - VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+DEBUG [Test worker] - Using VFS adapter org.apache.ibatis.io.DefaultVFS
+DEBUG [Test worker] - Find JAR URL: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto
+DEBUG [Test worker] - Not a JAR: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto
+DEBUG [Test worker] - Reader entry: Coffee.class
+DEBUG [Test worker] - Reader entry: CoffeeMng.class
+DEBUG [Test worker] - Listing file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto
+DEBUG [Test worker] - Find JAR URL: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto/Coffee.class
+DEBUG [Test worker] - Not a JAR: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto/Coffee.class
+DEBUG [Test worker] - Reader entry: 龕봅???4?'
+DEBUG [Test worker] - Find JAR URL: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto/CoffeeMng.class
+DEBUG [Test worker] - Not a JAR: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto/CoffeeMng.class
+DEBUG [Test worker] - Reader entry: 龕봅???4?X
+DEBUG [Test worker] - Checking to see if class kr.or.dgit.coffee_pro.dto.Coffee matches criteria [is assignable to Object]
+DEBUG [Test worker] - Checking to see if class kr.or.dgit.coffee_pro.dto.CoffeeMng matches criteria [is assignable to Object]
+DEBUG [Test worker] - PooledDataSource forcefully closed/removed all connections.
+DEBUG [Test worker] - PooledDataSource forcefully closed/removed all connections.
+DEBUG [Test worker] - PooledDataSource forcefully closed/removed all connections.
+DEBUG [Test worker] - PooledDataSource forcefully closed/removed all connections.
+DEBUG [Test worker] - Opening JDBC Connection
+DEBUG [Test worker] - Created connection 2051917348.
+DEBUG [Test worker] - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@7a4dc624]
+DEBUG [Test worker] - ==>  Preparing: select c.cname,c.ccode,cp.ccount,cp.cmargin, cp.cprice, (cp.cprice*cp.ccount) as 'total', ceiling((cp.cprice*cp.ccount)/11) as'tax', (cp.cprice*cp.ccount)-ceiling(((cp.cprice*cp.ccount)/11)) as 'supplyprice', round(((cp.cprice*cp.ccount)-((cp.cprice*cp.ccount)/11))*(cp.cmargin*0.01)) as 'profit', (select count(*)+1 from coffeeprice cprank where (cprank.cprice*cprank.ccount)>(cp.cprice*cp.ccount) ) as 'rank' from coffeeprice cp join coffee c on cp.ccode = c.ccode order by rank 
+DEBUG [Test worker] - ==>  Preparing: select c.cname,c.ccode,cp.ccount,cp.cmargin, cp.cprice, (cp.cprice*cp.ccount) as 'total', ceiling((cp.cprice*cp.ccount)/11) as'tax', (cp.cprice*cp.ccount)-ceiling(((cp.cprice*cp.ccount)/11)) as 'supplyprice', round(((cp.cprice*cp.ccount)-((cp.cprice*cp.ccount)/11))*(cp.cmargin*0.01)) as 'profit', (select count(*)+1 from coffeeprice cprank where (cprank.cprice*cprank.ccount)>(cp.cprice*cp.ccount) ) as 'rank' from coffeeprice cp join coffee c on cp.ccode = c.ccode order by rank 
+DEBUG [Test worker] - ==> Parameters: 
+DEBUG [Test worker] - ==> Parameters: 
+TRACE [Test worker] - <==    Columns: cname, ccode, ccount, cmargin, cprice, total, tax, supplyprice, profit, rank
+TRACE [Test worker] - <==    Columns: cname, ccode, ccount, cmargin, cprice, total, tax, supplyprice, profit, rank
+TRACE [Test worker] - <==        Row: 딸기쉐이크, B001, 250, 12, 5200, 1300000, 118182, 1181818, 141818, 1
+TRACE [Test worker] - <==        Row: 딸기쉐이크, B001, 250, 12, 5200, 1300000, 118182, 1181818, 141818, 1
+TRACE [Test worker] - <==        Row: 팥빙수, B003, 200, 9, 6000, 1200000, 109091, 1090909, 98182, 2
+TRACE [Test worker] - <==        Row: 팥빙수, B003, 200, 9, 6000, 1200000, 109091, 1090909, 98182, 2
+TRACE [Test worker] - <==        Row: 아메리카노, A001, 150, 10, 4500, 675000, 61364, 613636, 61364, 3
+TRACE [Test worker] - <==        Row: 아메리카노, A001, 150, 10, 4500, 675000, 61364, 613636, 61364, 3
+TRACE [Test worker] - <==        Row: 카푸치노, A002, 140, 15, 3800, 532000, 48364, 483636, 72545, 4
+TRACE [Test worker] - <==        Row: 카푸치노, A002, 140, 15, 3800, 532000, 48364, 483636, 72545, 4
+TRACE [Test worker] - <==        Row: 아이스초코, B004, 100, 20, 5000, 500000, 45455, 454545, 90909, 5
+TRACE [Test worker] - <==        Row: 아이스초코, B004, 100, 20, 5000, 500000, 45455, 454545, 90909, 5
+TRACE [Test worker] - <==        Row: 헤이즐넛, A003, 130, 11, 3800, 494000, 44910, 449090, 49400, 6
+TRACE [Test worker] - <==        Row: 헤이즐넛, A003, 130, 11, 3800, 494000, 44910, 449090, 49400, 6
+TRACE [Test worker] - <==        Row: 후르츠와인, B002, 110, 11, 4300, 473000, 43000, 430000, 47300, 7
+TRACE [Test worker] - <==        Row: 후르츠와인, B002, 110, 11, 4300, 473000, 43000, 430000, 47300, 7
+TRACE [Test worker] - <==        Row: 에스프레소, A004, 110, 18, 3500, 385000, 35000, 350000, 63000, 8
+TRACE [Test worker] - <==        Row: 에스프레소, A004, 110, 18, 3500, 385000, 35000, 350000, 63000, 8
+DEBUG [Test worker] - <==      Total: 8
+DEBUG [Test worker] - <==      Total: 8
+DEBUG [Test worker] - Resetting autocommit to true on JDBC Connection [com.mysql.jdbc.JDBC4Connection@7a4dc624]
+DEBUG [Test worker] - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@7a4dc624]
+DEBUG [Test worker] - Returned connection 2051917348 to pool.
+kr.or.dgit.coffee_pro.dto.CoffeeMng@23854e60
+kr.or.dgit.coffee_pro.dto.CoffeeMng@3d9df81
+kr.or.dgit.coffee_pro.dto.CoffeeMng@3b670974
+kr.or.dgit.coffee_pro.dto.CoffeeMng@2170314c
+kr.or.dgit.coffee_pro.dto.CoffeeMng@280f8d4c
+kr.or.dgit.coffee_pro.dto.CoffeeMng@65676a1b
+kr.or.dgit.coffee_pro.dto.CoffeeMng@6648f36a
+kr.or.dgit.coffee_pro.dto.CoffeeMng@461244be
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class kr.or.dgit.coffee_pro.CoffeeTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class kr.or.dgit.coffee_pro.CoffeeTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/kr.or.dgit.coffee_pro.html">kr.or.dgit.coffee_pro</a> &gt; CoffeeTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.105s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test1selectCoffee</td>
+<td>1.105s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>DEBUG [Test worker] - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+DEBUG [Test worker] - selectCoffeeTotal()
+DEBUG [Test worker] - selectCoffeeTotal()
+DEBUG [Test worker] - Class not found: org.jboss.vfs.VFS
+DEBUG [Test worker] - JBoss 6 VFS API is not available in this environment.
+DEBUG [Test worker] - Class not found: org.jboss.vfs.VirtualFile
+DEBUG [Test worker] - VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+DEBUG [Test worker] - Using VFS adapter org.apache.ibatis.io.DefaultVFS
+DEBUG [Test worker] - Find JAR URL: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto
+DEBUG [Test worker] - Not a JAR: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto
+DEBUG [Test worker] - Reader entry: Coffee.class
+DEBUG [Test worker] - Reader entry: CoffeeMng.class
+DEBUG [Test worker] - Listing file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto
+DEBUG [Test worker] - Find JAR URL: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto/Coffee.class
+DEBUG [Test worker] - Not a JAR: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto/Coffee.class
+DEBUG [Test worker] - Reader entry: 龕봅???4?'
+DEBUG [Test worker] - Find JAR URL: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto/CoffeeMng.class
+DEBUG [Test worker] - Not a JAR: file:/C:/program1/수업자료/eclipse_java/coffee_pro/build/classes/java/main/kr/or/dgit/coffee_pro/dto/CoffeeMng.class
+DEBUG [Test worker] - Reader entry: 龕봅???4?X
+DEBUG [Test worker] - Checking to see if class kr.or.dgit.coffee_pro.dto.Coffee matches criteria [is assignable to Object]
+DEBUG [Test worker] - Checking to see if class kr.or.dgit.coffee_pro.dto.CoffeeMng matches criteria [is assignable to Object]
+DEBUG [Test worker] - PooledDataSource forcefully closed/removed all connections.
+DEBUG [Test worker] - PooledDataSource forcefully closed/removed all connections.
+DEBUG [Test worker] - PooledDataSource forcefully closed/removed all connections.
+DEBUG [Test worker] - PooledDataSource forcefully closed/removed all connections.
+DEBUG [Test worker] - Opening JDBC Connection
+DEBUG [Test worker] - Created connection 2051917348.
+DEBUG [Test worker] - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@7a4dc624]
+DEBUG [Test worker] - ==&gt;  Preparing: select c.cname,c.ccode,cp.ccount,cp.cmargin, cp.cprice, (cp.cprice*cp.ccount) as 'total', ceiling((cp.cprice*cp.ccount)/11) as'tax', (cp.cprice*cp.ccount)-ceiling(((cp.cprice*cp.ccount)/11)) as 'supplyprice', round(((cp.cprice*cp.ccount)-((cp.cprice*cp.ccount)/11))*(cp.cmargin*0.01)) as 'profit', (select count(*)+1 from coffeeprice cprank where (cprank.cprice*cprank.ccount)&gt;(cp.cprice*cp.ccount) ) as 'rank' from coffeeprice cp join coffee c on cp.ccode = c.ccode order by rank 
+DEBUG [Test worker] - ==&gt;  Preparing: select c.cname,c.ccode,cp.ccount,cp.cmargin, cp.cprice, (cp.cprice*cp.ccount) as 'total', ceiling((cp.cprice*cp.ccount)/11) as'tax', (cp.cprice*cp.ccount)-ceiling(((cp.cprice*cp.ccount)/11)) as 'supplyprice', round(((cp.cprice*cp.ccount)-((cp.cprice*cp.ccount)/11))*(cp.cmargin*0.01)) as 'profit', (select count(*)+1 from coffeeprice cprank where (cprank.cprice*cprank.ccount)&gt;(cp.cprice*cp.ccount) ) as 'rank' from coffeeprice cp join coffee c on cp.ccode = c.ccode order by rank 
+DEBUG [Test worker] - ==&gt; Parameters: 
+DEBUG [Test worker] - ==&gt; Parameters: 
+TRACE [Test worker] - &lt;==    Columns: cname, ccode, ccount, cmargin, cprice, total, tax, supplyprice, profit, rank
+TRACE [Test worker] - &lt;==    Columns: cname, ccode, ccount, cmargin, cprice, total, tax, supplyprice, profit, rank
+TRACE [Test worker] - &lt;==        Row: 딸기쉐이크, B001, 250, 12, 5200, 1300000, 118182, 1181818, 141818, 1
+TRACE [Test worker] - &lt;==        Row: 딸기쉐이크, B001, 250, 12, 5200, 1300000, 118182, 1181818, 141818, 1
+TRACE [Test worker] - &lt;==        Row: 팥빙수, B003, 200, 9, 6000, 1200000, 109091, 1090909, 98182, 2
+TRACE [Test worker] - &lt;==        Row: 팥빙수, B003, 200, 9, 6000, 1200000, 109091, 1090909, 98182, 2
+TRACE [Test worker] - &lt;==        Row: 아메리카노, A001, 150, 10, 4500, 675000, 61364, 613636, 61364, 3
+TRACE [Test worker] - &lt;==        Row: 아메리카노, A001, 150, 10, 4500, 675000, 61364, 613636, 61364, 3
+TRACE [Test worker] - &lt;==        Row: 카푸치노, A002, 140, 15, 3800, 532000, 48364, 483636, 72545, 4
+TRACE [Test worker] - &lt;==        Row: 카푸치노, A002, 140, 15, 3800, 532000, 48364, 483636, 72545, 4
+TRACE [Test worker] - &lt;==        Row: 아이스초코, B004, 100, 20, 5000, 500000, 45455, 454545, 90909, 5
+TRACE [Test worker] - &lt;==        Row: 아이스초코, B004, 100, 20, 5000, 500000, 45455, 454545, 90909, 5
+TRACE [Test worker] - &lt;==        Row: 헤이즐넛, A003, 130, 11, 3800, 494000, 44910, 449090, 49400, 6
+TRACE [Test worker] - &lt;==        Row: 헤이즐넛, A003, 130, 11, 3800, 494000, 44910, 449090, 49400, 6
+TRACE [Test worker] - &lt;==        Row: 후르츠와인, B002, 110, 11, 4300, 473000, 43000, 430000, 47300, 7
+TRACE [Test worker] - &lt;==        Row: 후르츠와인, B002, 110, 11, 4300, 473000, 43000, 430000, 47300, 7
+TRACE [Test worker] - &lt;==        Row: 에스프레소, A004, 110, 18, 3500, 385000, 35000, 350000, 63000, 8
+TRACE [Test worker] - &lt;==        Row: 에스프레소, A004, 110, 18, 3500, 385000, 35000, 350000, 63000, 8
+DEBUG [Test worker] - &lt;==      Total: 8
+DEBUG [Test worker] - &lt;==      Total: 8
+DEBUG [Test worker] - Resetting autocommit to true on JDBC Connection [com.mysql.jdbc.JDBC4Connection@7a4dc624]
+DEBUG [Test worker] - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@7a4dc624]
+DEBUG [Test worker] - Returned connection 2051917348 to pool.
+kr.or.dgit.coffee_pro.dto.CoffeeMng@23854e60
+kr.or.dgit.coffee_pro.dto.CoffeeMng@3d9df81
+kr.or.dgit.coffee_pro.dto.CoffeeMng@3b670974
+kr.or.dgit.coffee_pro.dto.CoffeeMng@2170314c
+kr.or.dgit.coffee_pro.dto.CoffeeMng@280f8d4c
+kr.or.dgit.coffee_pro.dto.CoffeeMng@65676a1b
+kr.or.dgit.coffee_pro.dto.CoffeeMng@6648f36a
+kr.or.dgit.coffee_pro.dto.CoffeeMng@461244be
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.3</a> at 2018. 5. 10 오후 9:10:32</p>
+</div>
+</div>
+</body>
+</html>

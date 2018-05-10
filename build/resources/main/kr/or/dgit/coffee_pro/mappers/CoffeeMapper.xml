@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.dgit.coffee_pro.dao.CoffeeDao">
+	<resultMap type="Coffee" id="CoffeeResult">
+		<id property="cCode" column="ccode"/>
+		<result property="cPrice" column="cprice"/>
+		<result property="cCount" column="ccount"/>
+		<result property="cMargin" column="cmargin"/>
+	</resultMap> 
+	
+	<select id="selectCoffeeName" resultType="String">
+		select cname from coffee where ccode=#{ccode}
+	</select>
+	
+	<insert id="insertcoffee">
+		insert into coffeeprice values
+		(#{cCode.cCode},#{cPrice},#{cCount},#{cMargin})
+	</insert>
+	
+	<select id="selectCoffeeTotal" resultType="coffeeMng">
+		select c.cname,c.ccode,cp.ccount,cp.cmargin, cp.cprice,
+		(cp.cprice*cp.ccount) as 'total',
+		ceiling((cp.cprice*cp.ccount)/11) as'tax',
+		(cp.cprice*cp.ccount)-ceiling(((cp.cprice*cp.ccount)/11)) as 'supplyprice',
+		round(((cp.cprice*cp.ccount)-((cp.cprice*cp.ccount)/11))*(cp.cmargin*0.01)) as 'profit',
+		(select count(*)+1 from coffeeprice cprank where (cprank.cprice*cprank.ccount)>(cp.cprice*cp.ccount) ) as 'rank'
+		from coffeeprice cp join coffee c on cp.ccode = c.ccode
+		order by rank
+	</select>
+</mapper>
