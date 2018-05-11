@@ -28,15 +28,59 @@ public class CoffeeTest {
 		service = null;
 	}
 
-	
-	@Test
-	public void test1selectCoffee() {
+	//@Test
+	public void testAselectSaleByAll() {
 		
-		List<CoffeeMng> cf = service.selectCoffeeTotal();
+		List<CoffeeMng> cf = service.selectCoffeeAll();
 		for(CoffeeMng c:cf) {
 			System.out.println(c);
 		}
 		
 	}
-	
+	//@Test
+	public void testBselectSaleByNo() {
+		
+		String cf = service.selectCoffeeName("A001");
+		System.out.println(cf);
+		
+	}
+	//@Test
+	public void testCinsertProduct() {
+		
+		CoffeeMng cf = new CoffeeMng();
+		cf.setcCode(new Coffee("A001"));
+		cf.setcPrice(2500);
+		cf.setcCount(150);
+		cf.setcMargin(11);
+		service.insertCoffee(cf);	
+	}
+	//@Test
+	public void testDupdateProduct() {
+		CoffeeMng cf = new CoffeeMng();
+		cf.setcCode(new Coffee("A001"));
+		cf.setcPrice(2500);
+		cf.setcCount(150);
+		cf.setcMargin(11);
+		service.updateCoffee(cf);
+	}
+	//@Test
+	public void testEdeleteProduct() {
+		service.deleteCoffee("A001");
+	}
+	//@Test
+	public void testFcallSaleDetail() {
+		
+		List<CoffeeMng> cf = service.selectCoffeeMargin();
+		for(CoffeeMng c:cf) {
+			System.out.println(c);
+		}	
+	}
+	//@Test
+	public void testGcallgetTotal() {
+		
+		List<CoffeeMng> cf = service.selectCoffeeTotal();
+		for(CoffeeMng c:cf) {
+			System.out.println(c);
+		}	
+	}
 }

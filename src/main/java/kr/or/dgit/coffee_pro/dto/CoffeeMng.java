@@ -69,8 +69,16 @@ public class CoffeeMng {
 	public void setcMargin(int cMargin) {
 		this.cMargin = cMargin;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return String.format(
+				"CoffeeMng [cCode=%s, cPrice=%s, cCount=%s, cMargin=%s, total=%s, tax=%s, supplyPrice=%s, profit=%s, rank=%s]",
+				cCode, cPrice, cCount, cMargin, total, tax, supplyPrice, profit, rank);
+	}
 	public Object[] toArray() {
-		return new Object[] {rank, cCode,cCode.getcName(),toString().format("%,3d",cPrice),cCount,toString().format("%,3d",supplyPrice),toString().format("%,3d",tax),toString().format("%,3d",total),cMargin,toString().format("%,3d",profit)};
+		return new Object[] {rank, cCode,cCode.getcName(),toString().format("%,3d",cPrice),cCount,toString().format("%,3d",supplyPrice),toString().format("%,3d",tax),toString().format("%,3d",total),toString().format("%d%%", cMargin),toString().format("%,3d",profit)};
 	}
 	
 	

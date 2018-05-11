@@ -21,7 +21,7 @@ import kr.or.dgit.coffee_pro.dto.CoffeeMng;
 import kr.or.dgit.coffee_pro.service.CoffeeService;
 
 
-public class TotalRank extends JFrame {
+public class TotalMargin extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -35,12 +35,13 @@ public class TotalRank extends JFrame {
 	private int cTotal = 0;
 	private int cProfit = 0;
 	private CoffeeService service;
-
+	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TotalRank frame = new TotalRank();
+					TotalMargin frame = new TotalMargin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +50,7 @@ public class TotalRank extends JFrame {
 		});
 	}
 
-	public TotalRank() {
+	public TotalMargin() {
 		service = new CoffeeService();
 		initComponents();
 	}
@@ -62,7 +63,7 @@ public class TotalRank extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JScrollPane scrollPane =   new JScrollPane();
+		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(5, 45, 674, 172);
 		contentPane.add(scrollPane);
 
@@ -75,7 +76,7 @@ public class TotalRank extends JFrame {
 		pNorth.setBounds(5, 5, 674, 40);
 		contentPane.add(pNorth);
 
-		JLabel lblNewLabel = new JLabel("판매금액순위");
+		JLabel lblNewLabel = new JLabel("마진액순위");
 		lblNewLabel.setFont(new Font("궁서체", Font.BOLD, 25));
 		pNorth.add(lblNewLabel);
 		tableCellAlign(SwingConstants.CENTER, 0, 1, 2);
@@ -142,11 +143,10 @@ public class TotalRank extends JFrame {
 	private Object[][] getObj() {
 		Object[][] rows = null;
 
-		cfmng = service.selectCoffeeTotal();
+		cfmng = service.selectCoffeeMargin();
 		rows = new Object[cfmng.size()][];
 		for (int i = 0; i < cfmng.size(); i++) {
 			CoffeeMng cm = cfmng.get(i);
-			
 			cPrice += cm.getSupplyPrice();
 			cTax += cm.getTax();
 			cTotal += cm.getTotal();

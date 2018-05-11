@@ -129,10 +129,14 @@ public class CfMain extends JFrame implements ActionListener{
 		pSouth.add(btnTotal);
 		
 		btnMargin = new JButton("출력2");
+		btnMargin.addActionListener(this);
 		btnMargin.setFont(new Font("굴림", Font.BOLD | Font.ITALIC, 15));
 		pSouth.add(btnMargin);
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnMargin) {
+			actionPerformedBtnMargin(e);
+		}
 		if (e.getSource() == btnTotal) {
 			do_btnTotal_actionPerformed(e);
 		}
@@ -191,5 +195,9 @@ public class CfMain extends JFrame implements ActionListener{
 	protected void do_btnTotal_actionPerformed(ActionEvent e) {
 		TotalRank tr = new TotalRank();
 		tr.setVisible(true);
+	}
+	protected void actionPerformedBtnMargin(ActionEvent e) {
+		TotalMargin tm = new TotalMargin();
+		tm.setVisible(true);
 	}
 }

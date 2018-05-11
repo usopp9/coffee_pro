@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.dgit.coffee_pro.dao.CoffeeDao">
-	<resultMap type="Coffee" id="CoffeeResult">
-		<id property="cCode" column="ccode"/>
+	<resultMap type="CoffeeMng" id="CoffeeResult">
+		<result property="cCode.cCode" column="ccode"/>
 		<result property="cPrice" column="cprice"/>
 		<result property="cCount" column="ccount"/>
 		<result property="cMargin" column="cmargin"/>
 	</resultMap> 
+	
+	<select id="selectCoffeeAll" resultMap="CoffeeResult">
+		select ccode,cprice,ccount,cmargin from coffeeprice
+	</select>
 	
 	<select id="selectCoffeeName" resultType="String">
 		select cname from coffee where ccode=#{ccode}
@@ -17,13 +21,45 @@
 		(#{cCode.cCode},#{cPrice},#{cCount},#{cMargin})
 	</insert>
 	
-	<select id="selectCoffeeTotal" resultType="coffeeMng">
+	<update id="updateCoffee">
+		update coffeeprice set cprice=#{cPrice},ccount=#{cCount},cmargin=#{cMargin} where ccode=#{cCode.cCode}
+	</update>
+	
+	<delete id="deleteCoffee">
+		delete from coffeeprice where ccode=#{cCode.cCode}
+	</delete>
+	<resultMap type="CoffeeMng" id="CoffeeMngResult">
+		<result property="cCode.cCode" column="ccode"/>
+		<result property="cCode.cName" column="cname"/>
+		<result property="cPrice" column="cprice"/>
+		<result property="cCount" column="ccount"/>
+		<result property="cMargin" column="cmargin"/>
+		<result property="total" column="total"/>
+		<result property="tax" column="tax"/>
+		<result property="supplyPrice" column="supplyprice"/>
+		<result property="profit" column="profit"/>
+		<result property="rank" column="rank"/>
+	</resultMap>
+	<select id="selectCoffeeTotal" resultMap="CoffeeMngResult">
 		select c.cname,c.ccode,cp.ccount,cp.cmargin, cp.cprice,
 		(cp.cprice*cp.ccount) as 'total',
 		ceiling((cp.cprice*cp.ccount)/11) as'tax',
 		(cp.cprice*cp.ccount)-ceiling(((cp.cprice*cp.ccount)/11)) as 'supplyprice',
 		round(((cp.cprice*cp.ccount)-((cp.cprice*cp.ccount)/11))*(cp.cmargin*0.01)) as 'profit',
 		(select count(*)+1 from coffeeprice cprank where (cprank.cprice*cprank.ccount)>(cp.cprice*cp.ccount) ) as 'rank'
+		from coffeeprice cp join coffee c on cp.ccode = c.ccode
+		order by rank
+	</select>
+	
+	<select id="selectCoffeeMargin" resultMap="CoffeeMngResult">
+		select c.cname,c.ccode,cp.ccount,cp.cmargin, cp.cprice,
+		(cp.cprice*cp.ccount) as 'total',
+		ceiling((cp.cprice*cp.ccount)/11) as'tax',
+		(cp.cprice*cp.ccount)-ceiling(((cp.cprice*cp.ccount)/11)) as 'supplyprice',
+		round(((cp.cprice*cp.ccount)-((cp.cprice*cp.ccount)/11))*(cp.cmargin*0.01)) as 'profit',
+		(select count(*)+1 
+		from coffeeprice cprank 
+		where round(((cprank.cprice*cprank.ccount)-((cprank.cprice*cprank.ccount)/11))*(cprank.cmargin*0.01)) >round(((cp.cprice*cp.ccount)-((cp.cprice*cp.ccount)/11))*(cp.cmargin*0.01))  ) as 'rank'
 		from coffeeprice cp join coffee c on cp.ccode = c.ccode
 		order by rank
 	</select>

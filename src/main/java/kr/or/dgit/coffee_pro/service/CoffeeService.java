@@ -39,5 +39,32 @@ public class CoffeeService {
 			return res;
 		}
 	}
-	
+	public List<CoffeeMng> selectCoffeeMargin(){
+		log.debug("selectCoffeeMargin()");
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
+			List<CoffeeMng> res = sqlSession.selectList(namespace+"selectCoffeeMargin");
+			return res;
+		}
+	}
+	public List<CoffeeMng> selectCoffeeAll(){
+		log.debug("selectCoffeeAll()");
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
+			List<CoffeeMng> res = sqlSession.selectList(namespace+"selectCoffeeAll");
+			return res;
+		}
+	}
+	public void updateCoffee(CoffeeMng coffee){
+		log.debug("updateCoffee()");
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
+			sqlSession.update(namespace+"updateCoffee",coffee);
+			sqlSession.commit();
+		}
+	}
+	public void deleteCoffee(String cCode){
+		log.debug("deleteCoffee()");
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
+			sqlSession.delete(namespace+"deleteCoffee",cCode);
+			sqlSession.commit();
+		}
+	}
 }
